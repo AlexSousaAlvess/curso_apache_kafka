@@ -18,8 +18,9 @@ public class StrConsumerListener {
             containerFactory = "concurrentKafkaListenerContainerFactory"
     )*/
     @StrConsumerCustomListener(groupId = "group-1")
-    public void create(String message){
+    public void create(String message) throws Exception {
         log.info("CREATE ::: Receive message {}", message);
+        throw new IllegalArgumentException("EXCEPTION...");
     }
 
     /*@KafkaListener(
